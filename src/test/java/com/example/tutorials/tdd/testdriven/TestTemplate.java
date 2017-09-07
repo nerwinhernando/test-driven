@@ -51,6 +51,14 @@ public class TestTemplate {
 				time <= expected);
 	}
 	
+	@Test
+	public void variablesGetProcessedJustOnce() throws Exception {
+		template.set("one", "${one}");
+		template.set("two", "${three}");
+		template.set("three", "${two}");
+		assertTemplateEvaluatesTo("${one}, ${three}, ${two}");
+	}
+	
 	private void assertTemplateEvaluatesTo(String expected) {
 		assertEquals(expected, template.evaluate());
 	}
