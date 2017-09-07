@@ -40,6 +40,17 @@ public class TestTemplate {
 		} 
 	}
 	
+	@Test
+	public void templateWith100WordsAnd20Variables() throws Exception {
+		long expected = 200L;
+		long time = System.currentTimeMillis();
+		template.evaluate();
+		time = System.currentTimeMillis() - time;
+		assertTrue("Rendering the template took " + time
+				+ "ms while the target was " + expected + "ms",
+				time <= expected);
+	}
+	
 	private void assertTemplateEvaluatesTo(String expected) {
 		assertEquals(expected, template.evaluate());
 	}
