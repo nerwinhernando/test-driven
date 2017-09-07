@@ -15,4 +15,12 @@ public class RegexLearningTest {
 		Matcher matcher = Pattern.compile(regex).matcher(haystack);
 		assertEquals(2, matcher.groupCount());
 	}
+	
+	@Test
+	public void testFindStartAndEnd() throws Exception {
+		String haystack = "The needle shop sells needles";
+		String regex = "(needle)";
+		Matcher matcher = Pattern.compile(regex).matcher(haystack);
+		assertTrue(matcher.find());		
+	}
 }
