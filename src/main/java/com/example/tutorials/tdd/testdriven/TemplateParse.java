@@ -1,5 +1,6 @@
 package com.example.tutorials.tdd.testdriven;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TemplateParse {
@@ -7,7 +8,7 @@ public class TemplateParse {
 		
 	}
 	
-	List<String> parse(String something) {
-		return null;
+	List<String> parse(String template) {
+		return Collections.singletonList(template);
 	}
 }
