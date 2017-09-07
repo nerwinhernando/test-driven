@@ -20,6 +20,12 @@ public class TestTemplateParse {
 		List<String> segments = parse("plain text only");
 		assertSegments(segments, "plain text only");
 	}
+	
+	@Test
+	public void parsingMultipleVariables() throws Exception {
+		List<String> segments = parse("${a}:${b}:${c}");
+		assertSegments(segments, "${a}", ":", "${b}", ":", "${c}");		
+	}
 
 	private List<String> parse(String template) {
 		return new TemplateParse().parse(template);
