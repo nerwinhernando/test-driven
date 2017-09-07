@@ -1,5 +1,7 @@
 package com.example.tutorials.tdd.testdriven;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class TestTemplate {
