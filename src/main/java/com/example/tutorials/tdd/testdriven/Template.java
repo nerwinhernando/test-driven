@@ -3,6 +3,9 @@ package com.example.tutorials.tdd.testdriven;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Template {
 	private Map<String, String> variables;
@@ -33,8 +36,9 @@ public class Template {
 	}
 
 	private void checkForMissingValues(String result) {
-		if(result.matches(".*\\$\\{.+\\}.*")) {
-			throw new MissingValueException();
+		Matcher m = Pattern.compile("\\$\\{.+\\}").matcher(result);
+		if(m.find()) {
+			throw new MissingValueException("No value for " + m.group());
 		}
 	}
 }
