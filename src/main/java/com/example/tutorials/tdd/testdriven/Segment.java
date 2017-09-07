@@ -1,5 +1,7 @@
 package com.example.tutorials.tdd.testdriven;
 
-public interface Segment {
+import java.util.Map;
 
+public interface Segment {
+	String evaluate(Map<String, String> variables);
 }
