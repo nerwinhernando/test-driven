@@ -34,15 +34,16 @@ public class TestTemplateParse {
 		List<Segment> segments = p.parseSegments("a ${b} c ${d}");
 		assertSegments(segments, 
 				new PlainText("a "), new Variable("b"),
-				new PlainText("c "), new Variable("d"));
+				new PlainText(" c "), new Variable("d"));
 	}
 
 	private List<String> parse(String template) {
 		return new TemplateParse().parse(template);
 	}
 	
-	private void assertSegments(List<? extends Object> actual, Object ... expected) {
-		assertEquals("Number of segments doesn't match.", expected.length, actual.size());
+	private void assertSegments(List<? extends Object> actual, Object... expected) {
+		assertEquals("Number of segments doesn't match.", 
+				expected.length, actual.size());
 		assertEquals(Arrays.asList(expected), actual);		
 	}
 

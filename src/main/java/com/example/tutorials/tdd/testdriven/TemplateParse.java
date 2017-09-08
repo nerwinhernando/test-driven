@@ -10,7 +10,7 @@ public class TemplateParse {
 		
 	}
 	
-	List<String> parse(String template) {
+	public List<String> parse(String template) {
 		List<String> segments = new ArrayList<String>();
 		int index = collectSegments(segments, template);
 		addTail(segments, template, index);
@@ -57,7 +57,7 @@ public class TemplateParse {
 		List<String> strings = parse(template);
 		for(String s : strings) {
 			if(Template.isVariable(s)) {
-				String name = s.substring(2, s.length() -1 );
+				String name = s.substring(2, s.length() - 1);
 				segments.add(new Variable(name));
 			} else {
 				segments.add(new PlainText(s));
